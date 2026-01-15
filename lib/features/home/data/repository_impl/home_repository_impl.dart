@@ -28,8 +28,41 @@ class HomeRepositoryImpl implements HomeRepository {
   }
 
   @override
-  Future<List<PhotoEntity>?> searchPhotos(String value) {
-    // TODO: implement searchPhotos
-    throw UnimplementedError();
+  Future<List<PhotoEntity>?> searchPhotos(
+    String value, {
+    required int page,
+  }) async {
+    try {
+      final response = await _remote.searchPhoto(value, page: page);
+
+      return response.map((e) => e.toEntity()).toList();
+    } catch (e, stackTrace) {
+      log(
+        '''
+        Error: $e,
+        StackTrace: $stackTrace,
+        ''',
+        name: "Error while fetching randomPhotos",
+      );
+      return null;
+    }
+  }
+
+  @override
+  Future<List<PhotoEntity>?> getMore(String value, {required int page}) async {
+    try {
+      final response = await _remote.searchPhoto(value, page: page);
+
+      return response.map((e) => e.toEntity()).toList();
+    } catch (e, stackTrace) {
+      log(
+        '''
+        Error: $e,
+        StackTrace: $stackTrace,
+        ''',
+        name: "Error while fetching randomPhotos",
+      );
+      return null;
+    }
   }
 }

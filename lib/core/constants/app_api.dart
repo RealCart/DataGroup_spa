@@ -4,4 +4,5 @@ class AppApi {
   static const baseUrl = "https://api.unsplash.com";
 
   static const randomPhoto = "${baseUrl}/photos/random";
+  static const searchPhoto = "${baseUrl}/search/photos";
 }

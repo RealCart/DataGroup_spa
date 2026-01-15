@@ -2,5 +2,6 @@ import 'package:spa_project/features/home/domain/entity/photo_entity.dart';
 
 abstract interface class HomeRepository {
   Future<List<PhotoEntity>?> randomPhotos();
-  Future<List<PhotoEntity>?> searchPhotos(String value);
+  Future<List<PhotoEntity>?> searchPhotos(String value, {required int page});
+  Future<List<PhotoEntity>?> getMore(String value, {required int page});
 }

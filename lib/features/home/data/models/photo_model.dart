@@ -16,4 +16,13 @@ class PhotoModel {
   PhotoEntity toEntity() {
     return PhotoEntity(path: path);
   }
+
+  @override
+  String toString() {
+    return '''
+    PhotoModel(
+      path: $path
+    )
+    ''';
+  }
 }
